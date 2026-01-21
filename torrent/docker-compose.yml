@@ -37,7 +37,7 @@ services:
       - TORRENTING_PORT=6881
     volumes:
       - ./qbittorrent:/config
-      - ${DOWNLOADS_LOCATION}:/downloads #optional
+      - ${DATA_LOCATION}/downloads:/downloads #optional
     restart: unless-stopped
 
   flaresolverr:
@@ -78,8 +78,7 @@ services:
       - TZ=Europe/Brussels
     volumes:
       - ./lidarr:/config
-      - ${MUSIC_LOCATION}:/music #optional
-      - ${DOWNLOADS_LOCATION}:/downloads #optional
+      - ${DATA_LOCATION}:/data
     ports:
       - 8686:8686
     restart: unless-stopped
@@ -93,8 +92,7 @@ services:
       - TZ=Europe/Brussels
     volumes:
       - ./radarr:/config
-      - ${MOVIES_LOCATION}:/movies #optional
-      - ${DOWNLOADS_LOCATION}:/downloads #optional
+      - ${DATA_LOCATION}:/data
     ports:
       - 7878:7878
     restart: unless-stopped
@@ -108,8 +106,7 @@ services:
       - TZ=Europe/Brussels
     volumes:
       - ./sonarr:/config
-      - ${TVSHOWS_LOCATION}:/tv #optional
-      - ${DOWNLOADS_LOCATION}:/downloads #optional
+      - ${DATA_LOCATION}:/data
     ports:
       - 8989:8989
     restart: unless-stopped
